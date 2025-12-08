@@ -1,15 +1,3 @@
-# 🚗 Araba Fiyat Tahmini - Car Price Predictor
-
-İkinci el araç fiyatlarını CatBoost makine öğrenmesi modeli kullanarak tahmin eden web uygulaması.
-
-## 📋 Proje Özellikleri
-
-- **Backend:** FastAPI + CatBoost
-- **Frontend:** React.js
-- **Model Performansı:** R² = 0.89, MAE = ±302,903 TL
-- **Dinamik Filtreler:** Marka seçilince otomatik seri, yakıt tipi seçilince motor hacmi, vb.
-- **CORS Desteği:** Frontend ve Backend farklı portlarda çalışıyor
-
 ## 🔧 Kurulum
 
 ### Gereksinimler
@@ -92,10 +80,6 @@ car-price-predictor/
 ## 📝 Lisans
 
 Bu proje MIT lisansı altında sunulmuştur.
-
-## 👨‍💻 Geliştirici
-
-**Sezer Yigit**
 
 ---
 
