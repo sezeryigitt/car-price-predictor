@@ -448,6 +448,8 @@ car-price-predictor/
 │   ├── package-lock.json
 │   └── node_modules/             # Node bağımlılıkları (gitignore'da)
 │
+├── scripts/
+│   └── configure-git.sh          # Git kimlik yapılandırma scripti
 ├── .gitignore                    # Git ignore kuralları
 ├── README.md                     # Bu dosya
 └── LICENSE                       # MIT Lisansı
@@ -472,6 +474,27 @@ Araştırmacılar, İzmir bölgesindeki araç fiyat trendlerini analiz etmek iç
 ## 🤝 Katkıda Bulunma
 
 Katkılarınızı bekliyoruz! Projeye katkıda bulunmak için:
+
+### ⚙️ Geliştirici Ortamı Kurulumu (İlk Kez)
+
+Commit'lerinizin GitHub katkı grafiğinde (yeşil ekran) görünmesi için **kendi bilgisayarınızda** aşağıdaki adımı bir kez çalıştırın:
+
+```bash
+bash scripts/configure-git.sh
+```
+
+Bu script, global Git kimliğinizi otomatik olarak ayarlar:
+
+```bash
+git config --global user.name "Sezer Yiğit"
+git config --global user.email "sezeryigit.tr@gmail.com"
+```
+
+> **Not:** Bu komutlar yalnızca yerel makinenizde çalıştırılmalıdır. Uzak sunucularda veya CI ortamlarında etki göstermez. Ayrıca `sezeryigit.tr@gmail.com` adresinin GitHub hesabınızda **doğrulanmış (verified)** e-posta olarak ekli olduğundan emin olun: [GitHub Settings → Emails](https://github.com/settings/emails)
+
+---
+
+### 🔁 Katkı Adımları
 
 1. **Fork** edin
 2. Feature branch oluşturun:
