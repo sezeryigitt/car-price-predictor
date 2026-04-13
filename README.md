@@ -24,6 +24,7 @@ Bu proje, CatBoost regresyon algoritması kullanarak araç özelliklerine göre 
 - [API Dokümantasyonu](#-api-dokümantasyonu)
 - [Proje Yapısı](#-proje-yapısı)
 - [Katkıda Bulunma](#-katkıda-bulunma)
+- [Bilinen Sorunlar ve Çözümler](#-bilinen-sorunlar-ve-çözümler)
 - [Lisans](#-lisans)
 
 ---
@@ -499,6 +500,43 @@ test: Test ekleme/güncelleme
 chore: Bakım işleri
 ```
 
+### 📊 GitHub Katkı Grafiği (Yeşil Ekran)
+
+Private (özel) repolara yaptığınız commit'lerin GitHub profil sayfasındaki katkı grafiğinde görünmesi için aşağıdaki adımları izleyin:
+
+#### 1. "Include private contributions" ayarını açın
+
+GitHub'da profil sayfanıza gidin ve şu yolu izleyin:
+
+**GitHub → Settings → Profile → "Include private contributions on my profile"** kutucuğunu işaretleyin.
+
+Bu ayar açıldıktan sonra özel repolara yaptığınız commit sayısı grafik üzerinde görünür; repo adı ve içeriği gizli kalır.
+
+#### 2. Commit e-postanızın GitHub'daki doğrulanmış e-postayla eşleştiğinden emin olun
+
+Commit'lerin size atfedilebilmesi için Git'in kullandığı e-posta, GitHub hesabınızda **doğrulanmış (verified)** olarak kayıtlı olmalıdır.
+
+Mevcut ayarı kontrol edin:
+```bash
+git config --global user.name
+git config --global user.email
+```
+
+Gerekirse güncelleyin:
+```bash
+git config --global user.name "Ad Soyad"
+git config --global user.email "github-adresiniz@ornek.com"
+```
+
+GitHub'da kayıtlı e-postalarınızı şu adresten görebilirsiniz:  
+**GitHub → Settings → Emails**
+
+#### 3. Geçmiş commit'ler için bekleme süresi
+
+"Include private contributions" ayarını açtıktan sonra **geçmişte yaptığınız commit'ler herhangi bir işlem gerektirmeksizin otomatik olarak grafiğe yansır.** GitHub'ın grafiği güncellemesi birkaç dakika ila birkaç saat sürebilir; geçmişi yeniden yazmanıza (rewrite) gerek yoktur.
+
+> **Not:** Commit e-postası yanlışsa yalnızca o tarihten sonraki commit'ler görünür. Eski commit'lerin e-postasını düzeltmek için geçmiş yeniden yazılmalıdır; bu işlem paylaşımlı (fork'lanmış veya ekip) repolarda risklidir. Detaylı rehber için [CONTRIBUTING.md](CONTRIBUTING.md) dosyasına bakın.
+
 ---
 
 ## � Bilinen Sorunlar ve Çözümler
@@ -520,6 +558,34 @@ chore: Bakım işleri
 ```bash
 uvicorn main:app --reload --port 8001
 ```
+
+### Sorun 4: Private repo commit'leri katkı grafiğinde görünmüyor
+
+**Belirti:** GitHub profil sayfasındaki yeşil katkı grafiğinde private repolara yaptığınız commit'ler eksik.
+
+**Çözüm adımları:**
+
+1. **"Include private contributions" ayarını açın:**  
+   GitHub → Settings → Profile → *"Include private contributions on my profile"* kutucuğunu işaretleyin.
+
+2. **Commit e-postasının doğru olduğunu doğrulayın:**
+   ```bash
+   git log -1 --pretty=format:"%an <%ae>"
+   ```
+   Çıktıdaki e-posta, GitHub → Settings → Emails sayfasında **Verified** olarak görünmelidir.
+
+3. **Birkaç dakika bekleyin:** Ayar değişikliğinin ardından grafik otomatik olarak güncellenir.
+
+### Sorun 5: Commit e-postası yanlış olduğu için eski katkılar görünmüyor
+
+**Belirti:** `git log` çıktısındaki e-posta, GitHub hesabınızdaki doğrulanmış e-postadan farklı.
+
+**Yeni commit'ler için çözüm (global ayar):**
+```bash
+git config --global user.email "github-adresiniz@ornek.com"
+```
+
+**Eski commit'ler için:** Geçmişi yeniden yazmak gerekir; bu işlem paylaşımlı repolarda risklidir ve dikkatli uygulanmalıdır. Ayrıntılı adımlar ve riskler için [CONTRIBUTING.md](CONTRIBUTING.md) dosyasındaki *"Geçmiş Commit E-postasını Düzeltme"* bölümüne bakın.
 
 ---
 
